@@ -15,8 +15,8 @@ def predict(data):
     except :
         pass
        
-    newprocessed1 =  pd.util.hash_pandas_object(pd.DataFrame(ct1.transform(data)))
-    predictions =  pd.util.hash_pandas_object(pd.DataFrame(model.predict(newprocessed1), columns = ['FinalGrade']))    
+    newprocessed1 =  pd.DataFrame(ct1.transform(data))
+    predictions =  pd.DataFrame(model.predict(newprocessed1), columns = ['FinalGrade'])  
     predictions = predictions.astype('int')
     
     final = pd.concat([predictions, data], axis = 1)     
