@@ -1,7 +1,6 @@
-pandas<2.0.3
+pandas==3.8
 numpy
 matplotlib
 plotly
 seaborn
 streamlit
-Jinja2<23
