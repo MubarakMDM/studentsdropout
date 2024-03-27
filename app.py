@@ -4,8 +4,8 @@ import streamlit as st
 import pickle, joblib
 
 # Load the saved model 
-model = pickle.load(open('studentsdropout08/lr.pkl', 'rb'))
-ct1 = joblib.load('studentsdropout08/processed')
+model = pickle.load(open('studentsdropout09/lr.pkl', 'rb'))
+ct1 = joblib.load('studentsdropout09/processed')
 
 
 def predict(data):
