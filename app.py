@@ -38,8 +38,7 @@ def main():
     status_variable = 0
     
  
-    uploadedFile = st.sidebar.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files = False, key = "fileUploader")
-    #uploadedFile ="C:\Mubarak\Projects\PROJECTS\EKINOX\student_drop_out\student_drop_out\data\exercice_data.csv"
+    uploadedFile = st.sidebar.file_uploader("Choose a file", accept_multiple_files = False, key = "fileUploader")
     
     
     if uploadedFile is not None :
