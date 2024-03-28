@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 
-model = joblib.load("mypipelineafterfit.pkl")
+model = " "#joblib.load("mypipelineafterfit.pkl")
 
 def predict(data):
 
