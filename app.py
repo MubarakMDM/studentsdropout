@@ -1,13 +1,12 @@
 # Import libraries
 import pandas as pd
 import streamlit as st
-import pickle, joblib
+import joblib
 
 # Load the saved model 
 #model = pickle.load(open('lr.pkl', 'rb'))
-#ct1 = joblib.load('processed')
+#ct1 = joblib.load('processed.joblib')
 model = joblib.load("my_pipeline_afterfit.pkl")
-
 
 def predict(data):
 
@@ -15,9 +14,8 @@ def predict(data):
         data.drop(['FinalGrade'], axis = 1, inplace = True) # Excluding target FinalGrade column
     except :
         pass
-       
-    #newprocessed1 =  pd.DataFrame(ct1.transform(data))
-    predictions =  pd.DataFrame(model.predict(data), columns = ['FinalGrade'])  
+    #newprocessed1 = pd.DataFrame(ct1.transform(data)) 
+    predictions = pd.DataFrame(model.predict(data))     
     predictions = predictions.astype('int')
     
     final = pd.concat([predictions, data], axis = 1)     
@@ -40,7 +38,8 @@ def main():
     status_variable = 0
     
  
-    uploadedFile = st.sidebar.file_uploader("Choose a file", accept_multiple_files = False, key = "fileUploader")
+    uploadedFile = st.sidebar.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files = False, key = "fileUploader")
+    #uploadedFile ="C:\Mubarak\Projects\PROJECTS\EKINOX\student_drop_out\student_drop_out\data\exercice_data.csv"
     
     
     if uploadedFile is not None :
