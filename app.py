@@ -4,8 +4,9 @@ import streamlit as st
 import pickle, joblib
 
 # Load the saved model 
-model = pickle.load(open('lr.pkl', 'rb'))
-ct1 = joblib.load('processed')
+#model = pickle.load(open('lr.pkl', 'rb'))
+#ct1 = joblib.load('processed')
+model = joblib.load("my_pipeline_afterfit.pkl")
 
 
 def predict(data):
@@ -15,8 +16,8 @@ def predict(data):
     except :
         pass
        
-    newprocessed1 =  pd.DataFrame(ct1.transform(data))
-    predictions =  pd.DataFrame(model.predict(newprocessed1), columns = ['FinalGrade'])  
+    #newprocessed1 =  pd.DataFrame(ct1.transform(data))
+    predictions =  pd.DataFrame(model.predict(data), columns = ['FinalGrade'])  
     predictions = predictions.astype('int')
     
     final = pd.concat([predictions, data], axis = 1)     
