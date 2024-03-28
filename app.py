@@ -3,10 +3,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 
-# Load the saved model 
-#model = pickle.load(open('lr.pkl', 'rb'))
-#ct1 = joblib.load('processed.joblib')
-model = joblib.load("my_pipeline_afterfit.pkl")
+model = joblib.load("mypipelineafterfit.pkl")
 
 def predict(data):
 
@@ -14,7 +11,7 @@ def predict(data):
         data.drop(['FinalGrade'], axis = 1, inplace = True) # Excluding target FinalGrade column
     except :
         pass
-    #newprocessed1 = pd.DataFrame(ct1.transform(data)) 
+
     predictions = pd.DataFrame(model.predict(data))     
     predictions = predictions.astype('int')
     
