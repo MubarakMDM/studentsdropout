@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 
-model = " "#joblib.load("mypipelineafterfit.pkl")
+model = joblib.load("mypipelineafterfit.pkl")
 
 def predict(data):
 
@@ -36,7 +36,6 @@ def main():
     
  
     uploadedFile = st.sidebar.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files = False, key = "fileUploader")
-    #uploadedFile ="C:\Mubarak\Projects\PROJECTS\EKINOX\student_drop_out\student_drop_out\data\exercice_data.csv"
     
     
     if uploadedFile is not None :
